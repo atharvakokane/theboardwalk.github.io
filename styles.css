@@ -1,4 +1,6 @@
-/* ========== GLOBAL RESET & BASE ========== */
+/* ==========================================================================
+   GLOBAL RESET & BASE
+   ========================================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -6,17 +8,19 @@
 }
 
 html {
-  scroll-behavior: smooth; /* backup smooth scroll */
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #020617; /* dark background below hero */
+  font-family: "Poppins", sans-serif;
+  background: #020617; /* deep navy */
   color: #f9fafb;
   line-height: 1.6;
 }
 
-/* ========== ANIMATIONS ========== */
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
 .animate {
   opacity: 0;
   transform: translateY(32px);
@@ -40,53 +44,50 @@ body {
 }
 
 .delay-1 { transition-delay: 0.15s; }
-.delay-2 { transition-delay: 0.3s; }
+.delay-2 { transition-delay: 0.30s; }
 .delay-3 { transition-delay: 0.45s; }
 
-/* ========== NAV & HERO (TOP RED) ========== */
+/* ==========================================================================
+   HERO + NAV (FULL RED)
+   ========================================================================== */
+
 .hero {
   position: relative;
   padding-bottom: 5rem;
-  background:
-    radial-gradient(circle at top left, rgba(254, 202, 202, 0.55), transparent 55%),
-    radial-gradient(circle at top right, rgba(127, 29, 29, 0.8), transparent 60%),
-    linear-gradient(to bottom, #b91c1c, #7f1d1d, #111827);
   min-height: 80vh;
+
+  /* PURE RED PIRATE GRADIENT */
+  background: linear-gradient(to bottom, #b91c1c, #7f1d1d, #3f0c0c);
+  color: #fff;
+
   overflow: hidden;
 }
 
-/* subtle stripes overlay */
+/* subtle dark stripes overlay */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background-image: repeating-linear-gradient(
     -20deg,
-    rgba(127, 29, 29, 0.85) 0,
-    rgba(127, 29, 29, 0.85) 8px,
-    rgba(248, 113, 113, 0.12) 10px
+    rgba(63, 12, 12, 0.9) 0,
+    rgba(63, 12, 12, 0.9) 8px,
+    rgba(185, 28, 28, 0.2) 10px
   );
-  mix-blend-mode: soft-light;
-  opacity: 0.35;
+  opacity: 0.25;
   pointer-events: none;
 }
 
-/* sticky nav, now red */
 .nav {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 50;
   padding: 1rem 7vw;
+  background: linear-gradient(to bottom, #7f1d1d, #991b1b);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(
-    to bottom,
-    rgba(185, 28, 28, 0.98),
-    rgba(127, 29, 29, 0.95)
-  );
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(248, 250, 252, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .logo {
@@ -94,25 +95,24 @@ body {
   align-items: center;
   gap: 0.5rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  font-size: 1.1rem;
   text-transform: uppercase;
-  font-size: 1rem;
-  color: #fee2e2;
+  color: #ffe4e6;
 }
 
 .logo-mark {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 1.6rem;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #fef2f2;
+  color: #ffe4e6;
   font-size: 0.95rem;
   position: relative;
 }
@@ -120,127 +120,130 @@ body {
 .nav-links a::after {
   content: "";
   position: absolute;
+  bottom: -3px;
   left: 0;
-  bottom: -0.2rem;
-  width: 0;
+  width: 0%;
   height: 2px;
   background: #facc15;
-  transition: width 0.2s ease;
+  transition: width 0.25s ease;
 }
 
 .nav-links a:hover::after {
   width: 100%;
 }
 
-/* hero content */
+/* ==========================================================================
+   HERO CONTENT
+   ========================================================================== */
+
 .hero-inner {
-  position: relative;
-  z-index: 1;
   padding: 4rem 7vw 0;
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
 .hero-content {
-  max-width: 680px;
+  max-width: 700px;
 }
 
 .hero h1 {
   font-size: clamp(2.4rem, 4vw, 3.4rem);
-  color: #fee2e2;
+  font-weight: 700;
+  color: #ffe4e6;
   margin-bottom: 1rem;
 }
 
 .hero p {
   max-width: 520px;
-  font-size: 1rem;
-  color: #ffe4e6;
+  font-size: 1.05rem;
+  color: #fef2f2;
 }
 
 .hero-buttons {
+  margin-top: 2rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 2rem;
 }
 
 .hero-badge {
-  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   padding: 0.55rem 1rem;
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.3);
-  border: 1px solid rgba(254, 249, 195, 0.7);
   font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #fef9c3;
+  color: #fff;
+  letter-spacing: 0.1em;
+  margin-top: 0.5rem;
 }
 
-/* ========== BUTTONS ========== */
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+
 .btn {
   padding: 0.85rem 1.7rem;
   border-radius: 999px;
   font-weight: 600;
-  font-size: 0.95rem;
-  border: 2px solid transparent;
   text-decoration: none;
+  border: 2px solid transparent;
   cursor: pointer;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  transition: 0.2s ease;
 }
 
 .btn.primary {
   background: linear-gradient(to right, #7f1d1d, #ef4444);
-  color: #fef3c7;
-  box-shadow: 0 12px 25px rgba(127, 29, 29, 0.5);
+  color: #fff7ed;
+  box-shadow: 0 8px 16px rgba(127, 29, 29, 0.4);
 }
 
 .btn.outline {
+  border: 2px solid #ffe4e6;
+  color: #ffe4e6;
   background: transparent;
-  border-color: #fee2e2;
-  color: #fee2e2;
 }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.5);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.4);
 }
 
-.btn.outline:hover {
-  background: rgba(248, 250, 252, 0.1);
-}
+/* ==========================================================================
+   SECTIONS GLOBAL
+   ========================================================================== */
 
-/* ========== SECTIONS ========== */
 .section {
   padding: 4rem 7vw;
-  background:
-    radial-gradient(circle at top, rgba(127, 29, 29, 0.28), transparent 55%),
-    #020617;
-  scroll-margin-top: 90px; /* so sticky nav doesn't cover section titles */
+  background: #020617;
+  scroll-margin-top: 90px;
 }
 
 .section-alt {
-  background:
-    radial-gradient(circle at top right, rgba(248, 250, 252, 0.04), transparent 60%),
-    #030712;
+  background: #030712;
 }
 
 .section h2 {
   text-align: center;
-  font-size: 1.9rem;
-  margin-bottom: 0.75rem;
+  font-size: 2rem;
   color: #fecaca;
+  margin-bottom: 0.75rem;
 }
 
 .section-intro {
   text-align: center;
+  color: #e5e7eb;
   max-width: 580px;
   margin: 0 auto 2.5rem;
-  color: #e5e7eb;
-  font-size: 0.98rem;
 }
 
-/* ========== CARDS (MENU) ========== */
+/* ==========================================================================
+   MENU CARDS
+   ========================================================================== */
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -249,54 +252,33 @@ body {
 
 .card {
   background: #111827;
-  border-radius: 1rem;
-  padding: 1.3rem 1.4rem;
   border: 1px solid rgba(248, 113, 113, 0.4);
-  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.8);
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top left, rgba(248, 250, 252, 0.06), transparent 55%);
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  pointer-events: none;
+  padding: 1.4rem;
+  border-radius: 1rem;
+  transition: 0.25s ease;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
 }
 
 .card h3 {
   margin-bottom: 0.3rem;
   color: #fee2e2;
-  font-size: 1.05rem;
 }
 
 .card .price {
-  font-weight: 700;
   color: #fbbf24;
+  font-weight: 700;
   margin-bottom: 0.5rem;
-  font-size: 0.95rem;
-}
-
-.card p {
-  font-size: 0.9rem;
-  color: #e5e7eb;
 }
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
-  border-color: #f97373;
+  border-color: #fca5a5;
 }
 
-.card:hover::before {
-  opacity: 1;
-}
+/* ==========================================================================
+   2-COLUMN LAYOUT
+   ========================================================================== */
 
-/* ========== LAYOUT: TWO COLUMN ========== */
 .section-inner {
   max-width: 960px;
   margin: 0 auto;
@@ -306,89 +288,80 @@ body {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
   gap: 2rem;
-  align-items: flex-start;
 }
 
-/* ABOUT HIGHLIGHT */
+/* ABOUT HIGHLIGHT BOX */
 .about-highlight {
   background: #111827;
-  border-radius: 1rem;
-  border: 1px solid rgba(250, 204, 21, 0.7);
+  border: 1px solid #facc15;
   padding: 1.5rem;
-  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.9);
+  border-radius: 1rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
 }
 
 .about-highlight h3 {
-  margin-bottom: 0.5rem;
   color: #facc15;
+  margin-bottom: 0.5rem;
 }
 
-.about-highlight ul {
-  list-style: none;
-}
-
-.about-highlight li::before {
-  content: "•";
-  color: #f97316;
-  margin-right: 0.4rem;
-}
-
-/* ========== HOURS & BIGGER MAP ========== */
-.strong {
-  font-weight: 600;
-  color: #f9fafb;
-  margin-bottom: 0.3rem;
-}
+/* ==========================================================================
+   HOURS & MAP (BIGGER MAP)
+   ========================================================================== */
 
 .hours {
   list-style: none;
-  margin-top: 0.75rem;
-  font-size: 0.9rem;
+  margin-top: 1rem;
 }
 
 .hours li {
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 0.22rem 0;
-  color: #e5e7eb;
-  border-bottom: 1px dashed rgba(148, 163, 184, 0.3);
+  padding: 0.3rem 0;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.15);
 }
 
 .note {
-  margin-top: 0.7rem;
-  font-size: 0.8rem;
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
   color: #9ca3af;
 }
 
-/* Bigger map: larger aspect ratio */
-.map-wrapper {
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(248, 113, 113, 0.5);
-  background: #020617;
+/* Rebalance columns: map bigger */
+#visit .two-column {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr);
 }
 
+/* map container */
+.map-wrapper {
+  width: 100%;
+  background: #000;
+  border-radius: 1rem;
+  border: 1px solid rgba(248, 113, 113, 0.5);
+  overflow: hidden;
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.6);
+}
+
+/* Larger map height */
 .map-embed {
-  position: relative;
-  padding-bottom: 80%; /* was ~65%, now taller = bigger map */
-  height: 0;
+  width: 100%;
+  height: 380px; /* adjust to your liking */
 }
 
 .map-embed iframe {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
+  border: 0;
 }
 
-/* ========== CONTACT ========== */
+/* ==========================================================================
+   CONTACT
+   ========================================================================== */
+
 .contact-grid {
   max-width: 700px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 2rem;
 }
 
@@ -397,48 +370,35 @@ a {
 }
 
 a:hover {
-  color: #facc15;
+  color: #fde047;
 }
 
-/* ========== FOOTER ========== */
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
 .footer {
   background: #111827;
-  padding: 1.8rem 7vw;
+  padding: 2rem 7vw;
   text-align: center;
-  font-size: 0.85rem;
   color: #e5e7eb;
-  border-top: 1px solid rgba(55, 65, 81, 0.8);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* ========== RESPONSIVE ========== */
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
 @media (max-width: 768px) {
-  .nav {
-    padding-inline: 1.25rem;
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .map-embed {
+    height: 300px;
   }
 
   .nav-links {
-    gap: 0.9rem;
-    font-size: 0.85rem;
-  }
-
-  .hero-inner {
-    padding-inline: 1.25rem;
-  }
-
-  .section {
-    padding-inline: 1.25rem;
-  }
-
-  .two-column {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .hero-badge {
-    align-self: stretch;
-  }
-
-  /* Slightly reduce map height on small screens so it's not TOO tall */
-  .map-embed {
-    padding-bottom: 65%;
+    gap: 1rem;
   }
 }
