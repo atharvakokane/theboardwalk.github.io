@@ -10,8 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
 
   <script>
-    // Scroll animation trigger using IntersectionObserver
+    // IntersectionObserver for scroll-in animations + smooth scrolling for nav links
     document.addEventListener("DOMContentLoaded", () => {
+      // Scroll-in animations
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -21,6 +22,22 @@
       }, { threshold: 0.15 });
 
       document.querySelectorAll(".animate").forEach(el => observer.observe(el));
+
+      // Smooth scrolling for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener("click", (e) => {
+          const href = link.getAttribute("href");
+          const targetId = href.slice(1);
+          const target = document.getElementById(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+          }
+        });
+      });
     });
   </script>
 </head>
@@ -159,7 +176,7 @@
 
         <div class="map-wrapper slide-up delay-1">
           <div class="map-embed">
-            <!-- Google Maps embed -->
+            <!-- Bigger Google Maps embed -->
             <iframe
               src="https://www.google.com/maps?q=110+Draper+Rd+SW+Blacksburg+VA&output=embed"
               style="border:0;"
