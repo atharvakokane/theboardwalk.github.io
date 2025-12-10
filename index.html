@@ -7,10 +7,10 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
 
   <script>
-    // Scroll animation trigger
+    // Scroll animation trigger using IntersectionObserver
     document.addEventListener("DOMContentLoaded", () => {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -18,18 +18,20 @@
             entry.target.classList.add("show");
           }
         });
-      });
+      }, { threshold: 0.15 });
 
       document.querySelectorAll(".animate").forEach(el => observer.observe(el));
     });
   </script>
 </head>
 <body>
-
-  <!-- HERO SECTION -->
-  <header class="hero animate">
+  <!-- NAV + HERO -->
+  <header class="hero" id="home">
     <nav class="nav">
-      <div class="logo">The Boardwalk</div>
+      <div class="logo">
+        <span class="logo-mark">☠</span>
+        The Boardwalk
+      </div>
       <ul class="nav-links">
         <li><a href="#menu">Menu</a></li>
         <li><a href="#about">About</a></li>
@@ -38,54 +40,92 @@
       </ul>
     </nav>
 
-    <div class="hero-content">
-      <h1 class="animate slide-up">Funnel Cakes, Fried Oreos & Boardwalk Vibes</h1>
-      <p class="animate slide-up delay-1">
-        Downtown Blacksburg’s spot for carnival-style treats, late-night snacks, and serious sweet cravings.
-      </p>
-      <div class="hero-buttons animate slide-up delay-2">
-        <a href="#menu" class="btn primary">View Menu</a>
-        <a href="#visit" class="btn outline">Visit Us</a>
+    <div class="hero-inner animate">
+      <div class="hero-content">
+        <h1 class="slide-up">Funnel Cakes & High Seas Treats</h1>
+        <p class="slide-up delay-1">
+          Blacksburg’s own boardwalk — with funnel cakes, fried Oreos, and late-night treasures worthy of a pirate’s loot.
+        </p>
+        <div class="hero-buttons slide-up delay-2">
+          <a href="#menu" class="btn primary">View the Loot (Menu)</a>
+          <a href="#visit" class="btn outline">Find Our Harbor</a>
+        </div>
+      </div>
+      <div class="hero-badge slide-up delay-3">
+        Open Late · Student Favorite · Fairground Vibes
       </div>
     </div>
   </header>
 
   <main>
-
     <!-- MENU SECTION -->
     <section id="menu" class="section animate">
-      <h2>Menu Highlights</h2>
-      <p class="section-intro">Our best-selling treats — made fresh, fun, and unforgettable.</p>
+      <h2>Featured Bounty</h2>
+      <p class="section-intro">
+        A haul of sweet and salty treasures, fried fresh and served hot.
+      </p>
 
       <div class="cards">
-        <article class="card animate slide-up"><h3>Classic Funnel Cake</h3><p class="price">$7.50</p><p>Crispy and golden.</p></article>
-        <article class="card animate slide-up"><h3>Strawberry Sundae Funnel</h3><p class="price">$9.50</p><p>Loaded with strawberries & ice cream.</p></article>
-        <article class="card animate slide-up"><h3>Fried Oreos</h3><p class="price">$6.00</p><p>Iconic, warm, and powdered.</p></article>
-        <article class="card animate slide-up"><h3>Churro Bites</h3><p class="price">$5.50</p><p>Cinnamon-sugar perfection.</p></article>
-        <article class="card animate slide-up"><h3>Boardwalk Fries</h3><p class="price">$4.50</p><p>Thick-cut, crispy snack.</p></article>
+        <article class="card slide-up">
+          <h3>Captain’s Classic Funnel Cake</h3>
+          <p class="price">$7.50</p>
+          <p>Crispy, golden, dusted with powdered “pirate snow.” A true original.</p>
+        </article>
+
+        <article class="card slide-up delay-1">
+          <h3>Strawberry Shipwreck Sundae</h3>
+          <p class="price">$9.50</p>
+          <p>Funnel cake decked with strawberries, ice cream, and whipped cream.</p>
+        </article>
+
+        <article class="card slide-up delay-2">
+          <h3>Fried Oreos of the Deep</h3>
+          <p class="price">$6.00</p>
+          <p>Oreos battered and fried till they’re molten treasure inside.</p>
+        </article>
+
+        <article class="card slide-up">
+          <h3>Churro Cutlasses</h3>
+          <p class="price">$5.50</p>
+          <p>Cinnamon-sugar churro bites, perfect for sharing with your crew.</p>
+        </article>
+
+        <article class="card slide-up delay-1">
+          <h3>Boardwalk Fries</h3>
+          <p class="price">$4.50</p>
+          <p>Thick-cut, salty fries like you’d find at any seaside pier.</p>
+        </article>
+
+        <article class="card slide-up delay-2">
+          <h3>Seasonal Captain’s Special</h3>
+          <p class="price">Ask in store</p>
+          <p>Limited-time creations inspired by holidays, game days, and local events.</p>
+        </article>
       </div>
     </section>
 
     <!-- ABOUT SECTION -->
     <section id="about" class="section section-alt animate">
       <div class="section-inner two-column">
-        <div class="animate slide-up">
-          <h2>About The Boardwalk</h2>
+        <div class="slide-up">
+          <h2>About Our Crew</h2>
           <p>
-            We bring the taste of the shore straight to Blacksburg. Funnel cakes, fried Oreos, sundaes — all made fresh.
+            The Boardwalk brings the feel of a seaside fair straight into downtown Blacksburg.
+            From overflowing funnel cakes to deep-fried favorites, we’re here for the bold, the hungry,
+            and anyone chasing a little fun.
           </p>
           <p>
-            A local favorite among students and families, we're here for your sweet tooth and late-night cravings.
+            Locally owned and just a short trek from Virginia Tech, we’re a go-to spot for late-night study breaks,
+            post-game celebrations, and dessert dates.
           </p>
         </div>
-
-        <div class="about-highlight animate slide-up delay-1">
-          <h3>Perfect For</h3>
+        <div class="about-highlight slide-up delay-1">
+          <h3>Best For</h3>
           <ul>
-            <li>VT game days</li>
-            <li>Late-night desserts</li>
-            <li>Birthdays</li>
-            <li>Random cravings 😄</li>
+            <li>Post-game celebrations</li>
+            <li>Late-night dessert runs</li>
+            <li>Birthdays & celebrations</li>
+            <li>Sharing treats with your whole crew 😄</li>
           </ul>
         </div>
       </div>
@@ -93,49 +133,68 @@
 
     <!-- VISIT SECTION -->
     <section id="visit" class="section animate">
-      <h2>Hours & Location</h2>
-
+      <h2>Hours & Harbor</h2>
       <div class="section-inner two-column">
-        <div class="animate slide-up">
-          <h3>Visit Us</h3>
-          <p class="strong">110 Draper Rd SW<br>Blacksburg, VA 24060</p>
-          <p><a href="https://maps.google.com/?q=110+Draper+Rd+SW+Blacksburg+VA" target="_blank">Open in Google Maps</a></p>
+        <div class="slide-up">
+          <h3>Find Us</h3>
+          <p class="strong">
+            110 Draper Rd SW<br />
+            Blacksburg, VA 24060
+          </p>
+          <p>
+            <a href="https://maps.google.com/?q=110+Draper+Rd+SW+Blacksburg+VA" target="_blank">
+              Open in Google Maps
+            </a>
+          </p>
 
           <h3>Hours</h3>
           <ul class="hours">
-            <li><span>Mon – Wed</span><span>5 PM – 10 PM</span></li>
-            <li><span>Thu – Fri</span><span>5 PM – 12 AM</span></li>
-            <li><span>Saturday</span><span>3 PM – 12 AM</span></li>
-            <li><span>Sunday</span><span>3 PM – 10 PM</span></li>
+            <li><span>Mon – Wed</span><span>5:00 PM – 10:00 PM</span></li>
+            <li><span>Thu – Fri</span><span>5:00 PM – 12:00 AM</span></li>
+            <li><span>Saturday</span><span>3:00 PM – 12:00 AM</span></li>
+            <li><span>Sunday</span><span>3:00 PM – 10:00 PM</span></li>
           </ul>
+          <p class="note">Hours may change for holidays and special events.</p>
         </div>
 
-        <div class="map-placeholder animate slide-up delay-1">
-          <p>Map Preview</p>
-          <p class="small">Place an embedded Google Map here later.</p>
+        <div class="map-wrapper slide-up delay-1">
+          <div class="map-embed">
+            <!-- Google Maps embed -->
+            <iframe
+              src="https://www.google.com/maps?q=110+Draper+Rd+SW+Blacksburg+VA&output=embed"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- CONTACT SECTION -->
     <section id="contact" class="section section-alt animate">
-      <h2>Contact & Socials</h2>
-      <p class="section-intro">Reach out or follow us for specials!</p>
+      <h2>Contact & Signals</h2>
+      <p class="section-intro">
+        Questions, group visits, or looking for today’s specials? Send a message in a bottle.
+      </p>
 
       <div class="contact-grid">
-        <div class="animate slide-up">
+        <div class="slide-up">
           <h3>Contact</h3>
-          <p><strong>Phone:</strong> (540) 555-5555</p>
-          <p><strong>Email:</strong> info@theboardwalkblacksburg.com</p>
+          <p><strong>Phone:</strong> <a href="tel:+15405555555">(540) 555-5555</a></p>
+          <p><strong>Email:</strong> <a href="mailto:info@theboardwalkblacksburg.com">info@theboardwalkblacksburg.com</a></p>
         </div>
-
-        <div class="animate slide-up delay-1">
-          <h3>Follow Us</h3>
-          <p><a href="#">Instagram</a> · <a href="#">Facebook</a> · <a href="#">TikTok</a></p>
+        <div class="slide-up delay-1">
+          <h3>Follow the Flag</h3>
+          <p>
+            <a href="#" target="_blank">Instagram</a> ·
+            <a href="#" target="_blank">Facebook</a> ·
+            <a href="#" target="_blank">TikTok</a>
+          </p>
         </div>
       </div>
     </section>
-
   </main>
 
   <footer class="footer animate">
@@ -143,8 +202,8 @@
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Dynamic year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
