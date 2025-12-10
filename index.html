@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Boardwalk | Blacksburg, VA</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <script>
+    // Scroll animation trigger
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      });
+
+      document.querySelectorAll(".animate").forEach(el => observer.observe(el));
+    });
+  </script>
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <header class="hero animate">
+    <nav class="nav">
+      <div class="logo">The Boardwalk</div>
+      <ul class="nav-links">
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-content">
+      <h1 class="animate slide-up">Funnel Cakes, Fried Oreos & Boardwalk Vibes</h1>
+      <p class="animate slide-up delay-1">
+        Downtown Blacksburg’s spot for carnival-style treats, late-night snacks, and serious sweet cravings.
+      </p>
+      <div class="hero-buttons animate slide-up delay-2">
+        <a href="#menu" class="btn primary">View Menu</a>
+        <a href="#visit" class="btn outline">Visit Us</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- MENU SECTION -->
+    <section id="menu" class="section animate">
+      <h2>Menu Highlights</h2>
+      <p class="section-intro">Our best-selling treats — made fresh, fun, and unforgettable.</p>
+
+      <div class="cards">
+        <article class="card animate slide-up"><h3>Classic Funnel Cake</h3><p class="price">$7.50</p><p>Crispy and golden.</p></article>
+        <article class="card animate slide-up"><h3>Strawberry Sundae Funnel</h3><p class="price">$9.50</p><p>Loaded with strawberries & ice cream.</p></article>
+        <article class="card animate slide-up"><h3>Fried Oreos</h3><p class="price">$6.00</p><p>Iconic, warm, and powdered.</p></article>
+        <article class="card animate slide-up"><h3>Churro Bites</h3><p class="price">$5.50</p><p>Cinnamon-sugar perfection.</p></article>
+        <article class="card animate slide-up"><h3>Boardwalk Fries</h3><p class="price">$4.50</p><p>Thick-cut, crispy snack.</p></article>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section section-alt animate">
+      <div class="section-inner two-column">
+        <div class="animate slide-up">
+          <h2>About The Boardwalk</h2>
+          <p>
+            We bring the taste of the shore straight to Blacksburg. Funnel cakes, fried Oreos, sundaes — all made fresh.
+          </p>
+          <p>
+            A local favorite among students and families, we're here for your sweet tooth and late-night cravings.
+          </p>
+        </div>
+
+        <div class="about-highlight animate slide-up delay-1">
+          <h3>Perfect For</h3>
+          <ul>
+            <li>VT game days</li>
+            <li>Late-night desserts</li>
+            <li>Birthdays</li>
+            <li>Random cravings 😄</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISIT SECTION -->
+    <section id="visit" class="section animate">
+      <h2>Hours & Location</h2>
+
+      <div class="section-inner two-column">
+        <div class="animate slide-up">
+          <h3>Visit Us</h3>
+          <p class="strong">110 Draper Rd SW<br>Blacksburg, VA 24060</p>
+          <p><a href="https://maps.google.com/?q=110+Draper+Rd+SW+Blacksburg+VA" target="_blank">Open in Google Maps</a></p>
+
+          <h3>Hours</h3>
+          <ul class="hours">
+            <li><span>Mon – Wed</span><span>5 PM – 10 PM</span></li>
+            <li><span>Thu – Fri</span><span>5 PM – 12 AM</span></li>
+            <li><span>Saturday</span><span>3 PM – 12 AM</span></li>
+            <li><span>Sunday</span><span>3 PM – 10 PM</span></li>
+          </ul>
+        </div>
+
+        <div class="map-placeholder animate slide-up delay-1">
+          <p>Map Preview</p>
+          <p class="small">Place an embedded Google Map here later.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section section-alt animate">
+      <h2>Contact & Socials</h2>
+      <p class="section-intro">Reach out or follow us for specials!</p>
+
+      <div class="contact-grid">
+        <div class="animate slide-up">
+          <h3>Contact</h3>
+          <p><strong>Phone:</strong> (540) 555-5555</p>
+          <p><strong>Email:</strong> info@theboardwalkblacksburg.com</p>
+        </div>
+
+        <div class="animate slide-up delay-1">
+          <h3>Follow Us</h3>
+          <p><a href="#">Instagram</a> · <a href="#">Facebook</a> · <a href="#">TikTok</a></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer animate">
+    <p>© <span id="year"></span> The Boardwalk · Blacksburg, VA</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
